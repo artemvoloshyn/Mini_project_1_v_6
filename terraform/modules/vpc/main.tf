@@ -12,6 +12,20 @@ resource "aws_subnet" "public_subnet" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = var.publicCIDR
   availability_zone = var.availability_zone
+
+  tags = {
+    Name = "public-subnet"
+  }
+}
+
+resource "aws_subnet" "private_subnet" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.privateCIDR
+  availability_zone = var.availability_zone
+
+  tags = {
+    Name = "private-subnet"
+  }
 }
 
 resource "aws_internet_gateway" "gw" {
@@ -63,4 +77,25 @@ resource "aws_security_group" "main_security_group" {
   }
 }
 
+resource "aws_security_group" "private_subnet_security_group" {
+  name        = var.private_security_group_name
+  description = var.private_security_group_description  
+  vpc_id      = aws_vpc.main.id
 
+  dynamic "ingress" {
+    for_each = var.private_subnet_allowed_ports
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
