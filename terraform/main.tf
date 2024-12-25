@@ -3,10 +3,10 @@ module "vpc" {
   cidr                       = var.cidr
   publicCIDR                 = var.publicCIDR
   privateCIDR = var.privateCIDR
-  private1CIDR = var.privateCIDR
+  private1CIDR = var.private1CIDR
   environment                = var.environment
   availability_zone          = var.availability_zone
-  availability1_zone          = var.availability_zone
+  availability1_zone          = var.availability1_zone
   security_group_name        = var.security_group_name
   private_subnet_security_group_name = var.private_subnet_security_group_name
   security_group_description = var.security_group_description

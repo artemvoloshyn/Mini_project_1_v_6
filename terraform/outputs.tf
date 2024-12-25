@@ -9,3 +9,13 @@ output "CDN_URL" {
 output "CDN_ID" {
   value = module.cloudfront.aws_cloudfront_distribution_id
 }
+
+output "AWS-RDS" {
+  value = module.aws-rds.aws_rds_postgres_endpoint
+  
+}
+
+output "ELASTICACHE" {
+  value = module.elasticache.aws_redis_endpoint
+  
+}

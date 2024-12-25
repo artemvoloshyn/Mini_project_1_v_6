@@ -34,7 +34,7 @@ resource "aws_subnet" "private1_subnet" {
   availability_zone = var.availability1_zone
 
   tags = {
-    Name = "private-subnet"
+    Name = "private1-subnet"
   }
 }
 
