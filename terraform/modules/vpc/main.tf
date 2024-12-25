@@ -28,6 +28,16 @@ resource "aws_subnet" "private_subnet" {
   }
 }
 
+resource "aws_subnet" "private1_subnet" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.private1CIDR
+  availability_zone = var.availability1_zone
+
+  tags = {
+    Name = "private-subnet"
+  }
+}
+
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 
@@ -78,8 +88,8 @@ resource "aws_security_group" "main_security_group" {
 }
 
 resource "aws_security_group" "private_subnet_security_group" {
-  name        = var.private_security_group_name
-  description = var.private_security_group_description  
+  name        = var.private_subnet_security_group_name
+  description = var.private_subnet_security_group_description  
   vpc_id      = aws_vpc.main.id
 
   dynamic "ingress" {

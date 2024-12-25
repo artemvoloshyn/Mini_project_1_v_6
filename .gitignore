@@ -5,3 +5,4 @@ terraform.tfplan
 hashicorp
 .terraform.lock.hcl
 .terraform.tfstate.lock.info
+modules.json

@@ -28,7 +28,19 @@ variable "privateCIDR" {
 
 }
 
+variable "private1CIDR" {
+  type        = string
+  description = "value"
+
+}
+
 variable "availability_zone" {
+  type        = string
+  description = "value"
+
+}
+
+variable "availability1_zone" {
   type        = string
   description = "value"
 
@@ -38,7 +50,7 @@ variable "security_group_name" {
   type        = string
   description = "Security group name"
 }
-variable "private_security_group_name" {
+variable "private_subnet_security_group_name" {
   type = string
   description = "Private security group name"
 }
@@ -48,7 +60,7 @@ variable "security_group_description" {
   description = "Security group description"
 }
 
-variable "private_security_group_description" {
+variable "private_subnet_security_group_description" {
   type = string
   description = "Private_security group description"
 }
@@ -70,6 +82,22 @@ variable "instance_type" {
   type        = string
   description = "value"
 }
+
+variable "postgresql_db_name" {
+  type        = string
+  description = "value"
+}
+
+variable "postgresql_user_name" {
+  type        = string
+  description = "value"
+}
+
+variable "postgresql_password_value" {
+  type        = string
+  description = "value"
+}
+
 
 variable "aws_s3_bucket_name" {
   type        = string

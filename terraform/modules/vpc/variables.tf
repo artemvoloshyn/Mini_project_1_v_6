@@ -23,7 +23,19 @@ variable "privateCIDR" {
 
 }
 
+variable "private1CIDR" {
+  type        = string
+  description = "value"
+
+}
+
 variable "availability_zone" {
+  type        = string
+  description = "value"
+
+}
+
+variable "availability1_zone" {
   type        = string
   description = "value"
 
@@ -34,7 +46,7 @@ variable "security_group_name" {
   description = "Security group name"
 }
 
-variable "private_security_group_name" {
+variable "private_subnet_security_group_name" {
   type = string
   description = "Private security group name"
 }
@@ -44,7 +56,7 @@ variable "security_group_description" {
   description = "Security group description"
 }
 
-variable "private_security_group_description" {
+variable "private_subnet_security_group_description" {
   type = string
   description = "Private_security group description"
 }
